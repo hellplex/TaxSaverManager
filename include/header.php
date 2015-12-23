@@ -1,3 +1,8 @@
+<?php
+  //Start session
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,9 +23,17 @@
     <![endif]-->
   </head>
   <body>
-  	<head>
-	    <div style="background-color:#CCC;">
-	      <a href="http://localhost/TaxSaverManager/">home</a>
-	      <h1>Tax Saver Manager : <?php echo $pageName ?></h1>
-	    </div>
-    </head>
+<?php
+  if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
+    echo '<ul class="err">';
+    foreach($_SESSION['ERRMSG_ARR'] as $msg) {
+      echo '<li>',$msg,'</li>'; 
+    }
+    echo '</ul>';
+    unset($_SESSION['ERRMSG_ARR']);
+  }
+?>
+    <div style="background-color:#CCC;">
+      <a href="http://localhost/TaxSaverManager/">home</a>
+      <h1>Tax Saver Manager : <?php echo $pageName ?></h1>
+    </div>

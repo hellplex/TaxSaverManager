@@ -4,7 +4,7 @@
 ?>
   <h3>Sign up to book your commuter Tax Saver  </h3>
 
-  <form>
+  <form id="loginForm" name="loginForm" method="post" action="register_exec.php">
 
     Email <input type="text" /><br/>
     Password <input type="text" /> <br/>
