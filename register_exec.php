@@ -3,7 +3,7 @@
 	session_start();
 	
 	//Include database connection details
-	require_once('config.php');
+	require_once('./include/config.php');
 	
 	//Array to store validation errors
 	$errmsg_arr = array();
@@ -96,29 +96,16 @@
 	if($errflag) {
 		$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
 		session_write_close();
-		header("location: register_form.php");
+		header("location: signup.php");
 		exit();
 	}
-/*
-usr_email
-usr_password
-usr_lastName
-usr_travelCardId
-usr_departmentId
-usr_isAdmin
-
-usr_email, usr_password, usr_lastName, usr_travelCardId, usr_departmentId, usr_isAdmin
-
-'$usr_email','".md5($_POST['usr_password'])."','$usr_lastName','$usr_travelCardId','$usr_departmentId','$usr_isAdmin'
-*/
-
 
 	//Create INSERT query
 	$qry = "INSERT INTO txs_user(usr_email, usr_password, usr_firstName, usr_lastName, usr_travelCardId, usr_departmentId, usr_isAdmin) VALUES('$usr_email','".md5($_POST['usr_password'])."','$usr_firstName','$usr_lastName','$usr_travelCardId','$usr_departmentId','$usr_isAdmin')";
 	$result = $conn->query($qry);
 	if (!$result) die ("Database access failed: " . $conn->error);
 	//Check whether the query was successful or not
-	header("location: register_success.php");
+	header("location: ./register_success.php");
 	
 ?>
 
