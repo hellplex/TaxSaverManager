@@ -55,13 +55,13 @@
 	if($result->num_rows == 1) {
 			//Login Successful
 		session_regenerate_id();
-		$member = $result->fetch_array(MYSQLI_ASSOC);
-		$_SESSION['SESS_MEMBER_ID'] = $member['usr_email'];
-		$_SESSION['SESS_FIRST_NAME'] = $member['firstname'];
-		$_SESSION['SESS_LAST_NAME'] = $member['lastname'];
+		$appuser = $result->fetch_array(MYSQLI_ASSOC);
+		$_SESSION['SESS_MEMBER_ID'] = $appuser['usr_email'];
+		$_SESSION['SESS_FIRST_NAME'] = $appuser['usr_firstName'];
+		$_SESSION['SESS_LAST_NAME'] = $appuser['usr_lastName'];
 		session_write_close();
 			
-			//echo $member['member_id'];
+			//echo $user['member_id'];
 		header("location: member_index.php");
 		exit();
 	}else {

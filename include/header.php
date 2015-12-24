@@ -28,7 +28,9 @@
     unset($_SESSION['ERRMSG_ARR']);
   }
 ?>
-    <div style="background-color:#CCC;">
-      <a href="http://localhost/TaxSaverManager/">home</a>
+
+<div class="container">
+  <div class="jumbotron">
+    <a href="http://localhost/TaxSaverManager/">home</a>
       <h1>Tax Saver Manager : <?php echo $pageName ?></h1>
-    </div>
+  </div>
