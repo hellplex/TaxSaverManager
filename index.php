@@ -7,11 +7,9 @@
 
 <?php if (!$logged){ ?>
 
-<p>NOT LOGGED</p>
-
-  <h2>Welcome you are not logged</h2>
+  <h2>Welcome to Tax Saver Manager.</h2>
   
-  <p>Login to book your commuter Tax Saver  </p>
+  <p>Login to book your monthly commuter Tax Saver  </p>
 
   <form id="loginForm" name="loginForm" method="post" action="login_exec.php">
     <table width="300" border="0" align="center" cellpadding="2" cellspacing="0">
@@ -34,12 +32,69 @@
 
 <?php } else {?>
 
-  <p><br/><br/>Congratulations! you are logged :  <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a></p>
+
+<?php 
+/* Select current month and year 
+via http://stackoverflow.com/questions/470617/get-current-date-and-time-in-php*/
+$curr_month = date('m',time());
+$curr_year = date('y',time());
+
+/* Create an array of months and   
+via http://stackoverflow.com/questions/6221739/php-loop-through-months-array
+*/
+$months = array();
+for ($i = 12; $i >0 ; $i--) {
+    $timestamp = mktime(0, 0, 0, date('n') - $i, 1);
+    $months[date('n', $timestamp)] = date('F', $timestamp);
+}
+?>
+
+<style>
+  .months_container {
+    display: block;
+    overflow: hidden;
+  }
+  p.month_block {
+    border: solid 1px;
+    float: left;
+    margin-right: 2%;
+    width: 31%;
+
+  }
+</style>
+
+<script type="text/javascript">
+  function addMonth(month){
+    console.log(month);
+  }
+</script>
+
+<p><br/><br/>Congratulations! you are logged :  <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a></p>
+<p>LOGGED</p>
+<H2>BOOK MONTHLY TAX SAVER FOR <?php echo "20".$curr_year;?></H2> 
+
+<h3>Starting next month</h3>
+
+<div class="months_container">
+<?php
+    foreach ($months as $num => $name) {
+        printf('
+          <p class="month_block month%u">
+            %s
+            <br /><input type="button" value="Book" onclick="addMonth(%u)">
+            <br /><span style="color: red">Booked</span>
+          </p>', $num, $name, $num);
+    }
+?>
+</div>
 
 
-  <p>LOGGED</p>
 
-<?php } ?>
+
+
+<?php
+// end of logged content 
+} ?>
 
 
 <?php
