@@ -19,7 +19,7 @@ if (!$logged) {
 // If user is authenticated show database content
 else {
 ?>
-
+	<br/><br/>
 	<a href="member_index.php">Home</a> | <a href="logout.php">Logout</a>
 	<p>This is another secure page. </p>
 
