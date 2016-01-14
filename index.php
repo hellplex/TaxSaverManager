@@ -7,6 +7,8 @@
 
 <?php if (!$logged){ ?>
 
+<!-- ///// NOT LOGGED CONTENT START ///// -->
+
   <h2>Welcome to Tax Saver Manager.</h2>
   
   <p>Login to book your monthly commuter Tax Saver  </p>
@@ -30,8 +32,16 @@
 
   <h4>Not In the system yet? <a href="signup.php">Sign up here</a></h4>
 
+<!-- ///// NOT LOGGED CONTENT END ///// -->
+
 <?php } else {?>
 
+
+
+
+
+
+<!-- ///// LOGGED IN CONTENT START ///// -->
 
 <?php 
 /* Select current month and year 
@@ -69,11 +79,11 @@ for ($i = 12; $i >0 ; $i--) {
   }
 </script>
 
-<p><br/><br/>Congratulations! you are logged :  <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a></p>
-<p>LOGGED</p>
-<H2>BOOK MONTHLY TAX SAVER FOR <?php echo "20".$curr_year;?></H2> 
-
-<h3>Starting next month</h3>
+<p>
+  Hello! you are logged  as <strong style="color:purple"><?php echo $_SESSION['SESS_FIRST_NAME'];?></strong>
+  <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
+</p>
+<H2>Book monthly Tax Saver for <?php echo "20".$curr_year;?></H2> 
 
 <div class="months_container">
 <?php
@@ -89,12 +99,9 @@ for ($i = 12; $i >0 ; $i--) {
 </div>
 
 
+<!-- ///// LOGGED IN CONTENT START ///// -->
 
-
-
-<?php
-// end of logged content 
-} ?>
+<?php } ?>
 
 
 <?php
