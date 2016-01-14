@@ -1,24 +1,29 @@
 <?php
-  $pageName = "Sign up"; 
+  $pageName = "Update Info"; 
   include './include/header.php';
   include './include/session_control.php';
-
-  /*
-  if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
-    echo '<ul class="err">';
-    foreach($_SESSION['ERRMSG_ARR'] as $msg) {
-      echo '<li>',$msg,'</li>'; 
-    }
-    echo '</ul>';
-    unset($_SESSION['ERRMSG_ARR']);
-  }
-  */
 ?>
 
-<h3>Sign up to book your commuter Tax Saver  </h3>
+
+<?php
+// Check that user is authenticated, if show message 
+if (!$logged) { 
+?>
+  <p>
+    Sorry you are not logged! 
+    <a href="index.php">Please go to index</a>
+  </p>
+
+<?php }
+else {
+  // Content authenticated 
+?>
 
 
-<form id="loginForm" name="loginForm" method="post" action="register_exec.php">
+<h3>Edit or add Commute types</h3>
+
+
+<form id="updateTaxSaverType" name="updateTaxSaverType" method="post" action="register_exec.php">
   <table width="500" border="0" align="center" cellpadding="2" cellspacing="0">
     <tr>
       <th align="right">usr_email </th>
@@ -65,6 +70,11 @@
     </tr>
   </table>
 </form>
+
+
+<?php } ?>
+
+
 
 <!--
   <form id="loginForm" name="loginForm" method="post" action="register_exec.php">

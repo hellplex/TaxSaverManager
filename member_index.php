@@ -31,4 +31,5 @@ else {
 	<p>This is a password protected area only accessible to members. </p>
 
 <?php } ?>
+
 <?php  include './include/footer.php' ?>

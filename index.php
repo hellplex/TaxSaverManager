@@ -30,7 +30,7 @@
     </table>
   </form>
 
-  <h4>Not In the system yet? <a href="signup.php">Sign up here</a></h4>
+  <h4>Not In the system yet? <a href="form_signup.php">Sign up here</a></h4>
 
 <!-- ///// NOT LOGGED CONTENT END ///// -->
 
@@ -81,7 +81,7 @@ for ($i = 12; $i >0 ; $i--) {
 
 <p>
   Hello! you are logged  as <strong style="color:purple"><?php echo $_SESSION['SESS_FIRST_NAME'];?></strong>
-  <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
+  <a href="form_update_info.php">Update Tax Saver Types</a> | <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
 </p>
 <H2>Book monthly Tax Saver for <?php echo "20".$curr_year;?></H2> 
 
