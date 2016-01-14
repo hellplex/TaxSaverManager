@@ -62,7 +62,7 @@
 		session_write_close();
 			
 			//echo $user['member_id'];
-		header("location: member_index.php");
+		header("location: index.php");
 		exit();
 	}else {
 		//Login failed

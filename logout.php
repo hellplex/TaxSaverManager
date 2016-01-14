@@ -1,14 +1,13 @@
 <?php
-	//Start session
-	session_start();
-	
-	//Unset the variables stored in session
-	unset($_SESSION['SESS_MEMBER_ID']);
-	unset($_SESSION['SESS_FIRST_NAME']);
-	unset($_SESSION['SESS_LAST_NAME']);
-
 	$pageName = "Logged Out";
 	include './include/header.php';
+	
+	// remove all session variables
+	session_unset(); 
+	// destroy the session 
+	session_destroy();
+	
+	include './include/session_control.php';
 ?>
 
 <p align="center">&nbsp;</p>

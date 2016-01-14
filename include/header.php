@@ -1,3 +1,9 @@
+<?php
+  //Start session
+  session_start();
+  /*$_SESSION['SESS_MEMBER_ID'] = "usuario loggeado";*/
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,19 +24,8 @@
     <![endif]-->
   </head>
   <body>
-<?php
-  if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
-    echo '<ul class="err">';
-    foreach($_SESSION['ERRMSG_ARR'] as $msg) {
-      echo '<li>',$msg,'</li>'; 
-    }
-    echo '</ul>';
-    unset($_SESSION['ERRMSG_ARR']);
-  }
-?>
-
 <div class="container">
   <div class="jumbotron">
     <a href="http://localhost/TaxSaverManager/">home</a>
-      <h1>Tax Saver Manager : <?php echo $pageName ?></h1>
+    <h1>TSM <?php echo $pageName ?></h1>
   </div>

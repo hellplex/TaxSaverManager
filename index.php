@@ -1,15 +1,15 @@
 <?php 
   $pageName = "Home"; 
   include './include/header.php';
-
-//debug
-
-echo "variable de sesion"." aqui:: auth.php";
-
+  include './include/session_control.php';
 ?>
 
 
-  <h2>Welcome</h2>
+<?php if (!$logged){ ?>
+
+<p>NOT LOGGED</p>
+
+  <h2>Welcome you are not logged</h2>
   
   <p>Login to book your commuter Tax Saver  </p>
 
@@ -30,26 +30,19 @@ echo "variable de sesion"." aqui:: auth.php";
     </table>
   </form>
 
-  <h4>Not logged yet? <a href="signup.php">Sign up here</a></h4>
+  <h4>Not In the system yet? <a href="signup.php">Sign up here</a></h4>
+
+<?php } else {?>
+
+  <p><br/><br/>Congratulations! you are logged :  <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a></p>
 
 
+  <p>LOGGED</p>
 
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-  </div>
+<?php } ?>
 
-<?php  include './include/footer.php' ?>
+
+<?php
+  /*include './include/fakecontent.php';*/
+  include './include/footer.php' 
+?>
