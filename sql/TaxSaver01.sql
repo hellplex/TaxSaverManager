@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 14, 2016 at 01:45 PM
+-- Generation Time: Jan 15, 2016 at 08:38 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.5.28
 
@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS `txs_user` (
 
 INSERT INTO `txs_user` (`usr_email`, `usr_password`, `usr_firstName`, `usr_lastName`, `usr_travelCardId`, `usr_departmentId`, `usr_isAdmin`) VALUES
 ('csuarez10@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'bb8', 'the robot', 'ufgghjgjh', 0, 0),
+('csuarez12@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'jghjhv', 'hgjhkg', 'hgkjg', 0, 1),
 ('csuarez1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Cristina', 'Suarez Corzo', '343f', 3, 1),
 ('csuarez2@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Cristina', 'Suarez Corzo', '343f', 2, 0),
 ('csuarez3@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'ytuyt', 'uyt', 'yut', 0, 0),
@@ -104,7 +105,10 @@ INSERT INTO `txs_user` (`usr_email`, `usr_password`, `usr_firstName`, `usr_lastN
 -- Indexes for table `txs_request`
 --
 ALTER TABLE `txs_request`
-  ADD PRIMARY KEY (`request_id`);
+  ADD PRIMARY KEY (`request_id`),
+  ADD KEY `usr_email` (`usr_email`),
+  ADD KEY `usr_email_2` (`usr_email`),
+  ADD KEY `ticket_typeId` (`ticket_typeId`);
 
 --
 -- Indexes for table `txs_ticket_category`
@@ -116,13 +120,50 @@ ALTER TABLE `txs_ticket_category`
 -- Indexes for table `txs_ticket_type`
 --
 ALTER TABLE `txs_ticket_type`
-  ADD PRIMARY KEY (`ticket_typeId`);
+  ADD PRIMARY KEY (`ticket_typeId`),
+  ADD KEY `tcktcat_id` (`tcktcat_id`);
 
 --
 -- Indexes for table `txs_user`
 --
 ALTER TABLE `txs_user`
   ADD PRIMARY KEY (`usr_email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `txs_request`
+--
+ALTER TABLE `txs_request`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `txs_ticket_category`
+--
+ALTER TABLE `txs_ticket_category`
+  MODIFY `tcktcat_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `txs_ticket_type`
+--
+ALTER TABLE `txs_ticket_type`
+  MODIFY `ticket_typeId` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `txs_request`
+--
+ALTER TABLE `txs_request`
+  ADD CONSTRAINT `txs_request_ibfk_1` FOREIGN KEY (`usr_email`) REFERENCES `txs_user` (`usr_email`),
+  ADD CONSTRAINT `txs_request_ibfk_2` FOREIGN KEY (`ticket_typeId`) REFERENCES `txs_ticket_type` (`ticket_typeId`);
+
+--
+-- Constraints for table `txs_ticket_type`
+--
+ALTER TABLE `txs_ticket_type`
+  ADD CONSTRAINT `txs_ticket_type_ibfk_1` FOREIGN KEY (`tcktcat_id`) REFERENCES `txs_ticket_category` (`tcktcat_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
