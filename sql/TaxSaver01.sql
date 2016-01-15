@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2016 at 08:38 PM
+-- Generation Time: Jan 15, 2016 at 09:28 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.5.28
 
@@ -28,8 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `txs_request` (
   `request_id` int(11) NOT NULL,
-  `request_startDate` int(11) NOT NULL,
-  `request_endDate` int(11) NOT NULL,
+  `request_date_mmaa` int(4) NOT NULL,
   `usr_email` varchar(60) NOT NULL,
   `ticket_typeId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -42,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `txs_request` (
 
 CREATE TABLE IF NOT EXISTS `txs_ticket_category` (
   `tcktcat_id` int(11) NOT NULL,
-  `tcktcat_name` int(11) NOT NULL
+  `tcktcat_name` int(11) NOT NULL,
+  `tcktcat_url` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
