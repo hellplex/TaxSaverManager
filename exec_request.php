@@ -42,12 +42,12 @@
 	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO txs_request(request_date_mmyy,usr_email,ticket_typeId) 
+	$query = "INSERT INTO txs_request(request_date_mmyy,usr_email,ticket_typeId) 
 	VALUES('$request_date_mmyy','$usr_email','$ticket_typeId')";
 
 	echo "<h1>Request successful</h1>";
 
-	$result = $conn->query($qry);
+	$result = $conn->query($query);
 	if (!$result) die ("Database access failed: " . $conn->error);
 	
 ?>

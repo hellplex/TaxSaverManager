@@ -33,7 +33,7 @@ else {
 
 	displayUserResquests();
 
-	checkMonth("0116");
+	checkIfMonthBooked("0116");
 
 
 } ?>

@@ -1,4 +1,8 @@
 <?php	
+	echo "<h2 style=\"color:red;\">deleted</h2>";
+?>
+
+<?php	
 	//Array to store validation errors
 	$errmsg_arr = array();
 	
@@ -11,23 +15,12 @@
 	
 	//Sanitize the POST values
 	$request_date_mmyy = clean($_POST['request_date_mmyy'],$conn);
-	$usr_email = clean($_POST['usr_email'],$conn);
-	$ticket_typeId = clean($_POST['ticket_typeId'],$conn);
 
 	//Input Validations
 	if($request_date_mmyy == '') {
 		$errmsg_arr[] = 'Request date mmyy';
 		$errflag = true;
 	}
-	if($usr_email == '') {
-		$errmsg_arr[] = 'User email missing';
-		$errflag = true;
-	}
-	if($ticket_typeId == '') {
-		$errmsg_arr[] = 'Type of ticket missing';
-		$errflag = true;
-	}
-
 	
 	//If there are input validations, redirect back to the registration form
 	if($errflag) {
@@ -37,11 +30,13 @@
 		exit();
 	}
 
-	//Create INSERT query
-	$query = "INSERT INTO txs_request(request_date_mmyy,usr_email,ticket_typeId) 
-	VALUES('$request_date_mmyy','$usr_email','$ticket_typeId')";
+	//Create DELETE query
+    $query  = "DELETE FROM txs_request WHERE request_date_mmyy='$request_date_mmyy'";
+    $result = $conn->query($query);
+  	if (!$result) echo "DELETE failed: $query<br>" .
+      $conn->error . "<br><br>";
 
-	echo "<h1>Request successful</h1>";
+	echo "<h1>Deleted successful</h1>";
 
 	$result = $conn->query($query);
 	if (!$result) die ("Database access failed: " . $conn->error);

@@ -69,10 +69,10 @@ Form updateTicketType
 	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO txs_ticket_type(ticket_name,ticket_gross,ticket_net1,ticket_net2,ticket_shortDescript,ticket_longDescript,tcktcat_id) 
+	$query = "INSERT INTO txs_ticket_type(ticket_name,ticket_gross,ticket_net1,ticket_net2,ticket_shortDescript,ticket_longDescript,tcktcat_id) 
 	VALUES('$ticket_name','$ticket_gross','$ticket_net1','$ticket_net2','$ticket_shortDescript','$ticket_longDescript','$ticket_categories')";
 
-	$result = $conn->query($qry);
+	$result = $conn->query($query);
 	if (!$result) die ("Database access failed: " . $conn->error);
 	//Check whether the query was successful or not
 	header("location: ./success_ticket.php");

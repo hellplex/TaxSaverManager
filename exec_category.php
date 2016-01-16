@@ -40,10 +40,10 @@
 	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO txs_ticket_category(tcktcat_name,tcktcat_url) 
+	$query = "INSERT INTO txs_ticket_category(tcktcat_name,tcktcat_url) 
 	VALUES('$tcktcat_name','$tcktcat_url')";
 
-	$result = $conn->query($qry);
+	$result = $conn->query($query);
 	if (!$result) die ("Database access failed: " . $conn->error);
 	//Check whether the query was successful or not
 	header("location: ./success_category.php");

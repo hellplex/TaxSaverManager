@@ -79,10 +79,10 @@
 	
 	//Check for duplicate email
 	if($login != '') {
-		$qry = "SELECT * FROM txs_user WHERE usr_email='$usr_email'";
-		$result = $conn->query($qry);
+		$query = "SELECT * FROM txs_user WHERE usr_email='$usr_email'";
+		$result = $conn->query($query);
         if (!$result) die ("Database access failed: " . $conn->error);
-		//$result = mysql_query($qry);
+		//$result = mysql_query($query);
 		
 		if($result->num_rows != 0) {
 			$errmsg_arr[] = 'Login ID already in use';
@@ -101,8 +101,8 @@
 	}
 
 	//Create INSERT query
-	$qry = "INSERT INTO txs_user(usr_email, usr_password, usr_firstName, usr_lastName, usr_travelCardId, usr_departmentId, usr_isAdmin) VALUES('$usr_email','".md5($_POST['usr_password'])."','$usr_firstName','$usr_lastName','$usr_travelCardId','$usr_departmentId','$usr_isAdmin')";
-	$result = $conn->query($qry);
+	$query = "INSERT INTO txs_user(usr_email, usr_password, usr_firstName, usr_lastName, usr_travelCardId, usr_departmentId, usr_isAdmin) VALUES('$usr_email','".md5($_POST['usr_password'])."','$usr_firstName','$usr_lastName','$usr_travelCardId','$usr_departmentId','$usr_isAdmin')";
+	$result = $conn->query($query);
 	if (!$result) die ("Database access failed: " . $conn->error);
 	//Check whether the query was successful or not
 	header("location: ./success_register.php");

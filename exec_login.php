@@ -46,8 +46,8 @@
 	}
 	
 	//Create query
-	$qry="SELECT * FROM txs_user WHERE usr_email='$usr_email' AND usr_password='".md5($_POST['usr_password'])."'";
-	$result = $conn->query($qry);
+	$query="SELECT * FROM txs_user WHERE usr_email='$usr_email' AND usr_password='".md5($_POST['usr_password'])."'";
+	$result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
 	
 	//Check whether the query was successful or not

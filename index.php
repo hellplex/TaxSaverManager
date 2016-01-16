@@ -7,10 +7,12 @@
   require_once './include/config.php';
   include './include/functions.php';
 
-  $booked = false;
-
 if (isset($_POST['request_date_mmyy']) && isset($_POST['usr_email']) && isset($_POST['ticket_typeId'])){
   include('exec_request.php');
+}
+
+if (isset($_POST['request_date_mmyy']) && isset($_POST['delete_request'])){
+  include('exec_cancel_request.php');
 }
 
 ?>
@@ -45,6 +47,18 @@ for ($i = 12; $i >0 ; $i--) {
   <a href="form_update_ticket_type.php">Update Tax Saver Types</a> | <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
 </p>
 
+<style>
+  .month_block {
+    height: 130px;
+  }
+
+
+  .booked_label, .month_booked .bookform {display: none;}
+  
+  .month_booked .booked_label {
+    display: block;
+  }
+</style>
 
 <H2>Book monthly Tax Saver for year <?php echo "20".$curr_year ?></H2> 
 <div class="months_container">
@@ -54,12 +68,12 @@ for ($i = 12; $i >0 ; $i--) {
       /* Request identifier :: also for date mmyy */
       $request_id = sprintf("%02d", $num).$curr_year;
 
-      /* Wrapped div include a class "month_booked" if it is so */
-      echo "<div class=\"";checkIfMonthBooked($request_id);echo "\">";
+      /* Wrapped div include a class "month_booked" if this month is booked */
+      echo "<div class=\"month_block ";checkIfMonthBooked($request_id);echo "\">";
 
       /* build the date for the request in the format mmyy */
-      echo "<form id=\"request_".$request_id."\" name=\"request_".$request_id."\" method=\"post\" action=\"index.php\">
-      <p class=\"month_block\">
+      echo "
+    <form class=\"bookform\" id=\"request_".$request_id."\" name=\"request_".$request_id."\" method=\"post\" action=\"index.php\">
       <input name=\"request_date_mmyy\" type=\"hidden\" value=\"".$request_id."\"/>
       <input name=\"usr_email\" type=\"hidden\" value=\"".$_SESSION['SESS_MEMBER_ID']."\"/>".$name."<br/>
       ";
@@ -68,12 +82,16 @@ for ($i = 12; $i >0 ; $i--) {
       displaySelectTicket();
 
       echo "<br /><input type=\"submit\" value=\"Book\">";
-
-      if ($booked) {
-        echo "<br /><span class=\"\" style=\"color: red\">Booked</span>";
-      }
-
-      echo "</p></form></div>";
+      echo "
+    </form>";
+      echo "<br /><span class=\"booked_label\" style=\"color: red\">Booked: </span>
+    <form id=\"cancel_".$request_id."\" name=\"cancel_".$request_id."\" method=\"post\" action=\"index.php\">
+      <input type=\"hidden\" name=\"delete_request\" value=\"yes\">
+      <input type=\"hidden\" name=\"request_date_mmyy\" value=\"".$request_id."\">
+      <input type=\"submit\" value=\"Cancel\">
+    </form>
+</div>
+";
 
     }
 ?>
