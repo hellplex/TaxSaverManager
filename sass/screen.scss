@@ -1,10 +1,15 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*  INDEX --  Month boxes for book monthly tictets  */
 
-@import "compass/reset";
+.months_container {
+    display: block;
+    overflow: hidden;
+  }
+.month_block {
+    border: solid 1px;
+    float: left;
+    padding: 1%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    width: 28%;
 
-.helloclass {
-	display: inherit;
 }
