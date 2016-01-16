@@ -1,7 +1,11 @@
 <?php
 	$pageName = "Member profile"; 
 	include './include/header.php';
-	include './include/session_control.php'
+	include './include/session_control.php';
+
+  	//Include database connection details
+  	require_once './include/config.php';
+  	include './include/functions.php';
 ?>
 
 <?php 
@@ -23,6 +27,15 @@ else {
 	<a href="member_index.php">Home</a> | <a href="logout.php">Logout</a>
 	<p>This is another secure page. </p>
 
-<?php } ?>
+	<p>THIS USER REQUESTS and ask if 0116 is booked by user:</p>
+
+<?php
+
+	displayUserResquests();
+
+	checkMonth("0116");
+
+
+} ?>
 
 <?php  include './include/footer.php' ?>

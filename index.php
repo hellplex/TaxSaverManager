@@ -54,11 +54,15 @@ for ($i = 12; $i >0 ; $i--) {
       /* Request identifier :: also for date mmyy */
       $request_id = sprintf("%02d", $num).$curr_year;
 
+      /* Wrapped div include a class "month_booked" if it is so */
+      echo "<div class=\"";checkIfMonthBooked($request_id);echo "\">";
+
       /* build the date for the request in the format mmyy */
       echo "<form id=\"request_".$request_id."\" name=\"request_".$request_id."\" method=\"post\" action=\"index.php\">
       <p class=\"month_block\">
       <input name=\"request_date_mmyy\" type=\"hidden\" value=\"".$request_id."\"/>
-      <input name=\"usr_email\" type=\"hidden\" value=\"".$_SESSION['SESS_MEMBER_ID']."\"/>".$name."<br/>";
+      <input name=\"usr_email\" type=\"hidden\" value=\"".$_SESSION['SESS_MEMBER_ID']."\"/>".$name."<br/>
+      ";
 
       /* select with all the ticket types */
       displaySelectTicket();
@@ -66,10 +70,10 @@ for ($i = 12; $i >0 ; $i--) {
       echo "<br /><input type=\"submit\" value=\"Book\">";
 
       if ($booked) {
-        echo "<br /><span style=\"color: red\">Booked</span>";
+        echo "<br /><span class=\"\" style=\"color: red\">Booked</span>";
       }
 
-      echo "</p></form>";
+      echo "</p></form></div>";
 
     }
 ?>

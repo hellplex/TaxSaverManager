@@ -4,27 +4,24 @@
 
   INDEX OF FUNCTIONS IN THIS FILE
 
-  - function displaySelectCat()
-  - function displaySelectTicket() 
-  - function displayTicketTypes()
+  - displaySelectCat()
+  - displaySelectTicket() 
+  - displayTicketTypes()
+  
+  - displayUserResquests() 
+  - checkIfMonthBooked()
 
-  - function getPostCategories()
+  - getPostCategories()
 
   - function clean($str, $connection) 
 */
 
 
+
 /*  Display a <Select> of ticket categories  */
 function displaySelectCat() {
-  //Array to store validation errors
-  $errmsg_arr = array();
 
-  //Validation error flag
-  $errflag = false;
-
-  //Connect to mysql server
-  $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
-    if ($conn->connect_error) die($conn->connect_error);
+  include './include/connect_db.php';
  
   /* Query database for ticket categories */
   $query = "SELECT * FROM txs_ticket_category";  
@@ -53,15 +50,8 @@ _END;
 
 /*  Display a select of tickets to pick  */
 function displaySelectTicket() {
-  //Array to store validation errors
-  $errmsg_arr = array();
-
-  //Validation error flag
-  $errflag = false;
-
-  //Connect to mysql server
-  $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
-    if ($conn->connect_error) die($conn->connect_error);
+  
+  include './include/connect_db.php';
  
   /* Query database for ticket categories */
   $query = "SELECT * FROM txs_ticket_type";  
@@ -89,15 +79,8 @@ _END;
 
 /*  Display ticket categories  */
 function displayTicketTypes() {
-  //Array to store validation errors
-  $errmsg_arr = array();
-
-  //Validation error flag
-  $errflag = false;
-
-  //Connect to mysql server
-  $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
-    if ($conn->connect_error) die($conn->connect_error);
+  
+  include './include/connect_db.php';
  
   /* Query database for ticket categories */
   $query = "SELECT * FROM txs_ticket_type";  
@@ -127,6 +110,61 @@ _END;
   $result->close();
   $conn->close();
 }
+
+
+/*  Display all the request of an user  */
+function displayUserResquests() {
+
+  include './include/connect_db.php';
+
+  /* User email to compare with the row usr_email on the request */
+  $curr_user_email = $_SESSION['SESS_MEMBER_ID'];
+ 
+  /* Query database for ticket categories */
+  $query = "SELECT * FROM txs_request  where usr_email like '%$curr_user_email%'";
+
+  $result = $conn->query($query);
+    if (!$result) die ("Database access failed: " . $conn->error);
+
+  $rows = $result->num_rows;
+
+  for ($j = 0 ; $j < $rows ; ++$j)
+  {
+    $result->data_seek($j);
+    $row = $result->fetch_array(MYSQLI_NUM);
+    echo "<p>".$row[1]."<p>";
+  }
+  $result->close();
+  $conn->close();
+}
+
+/*  Check if a specific month has been booked by the user  */
+function checkIfMonthBooked($booking) {
+
+  include './include/connect_db.php';
+
+  /* User email to compare with the row usr_email on the request */
+  $curr_user_email = $_SESSION['SESS_MEMBER_ID'];
+ 
+  /* Query database for ticket categories */
+  $query = "SELECT * FROM txs_request  where usr_email like '%$curr_user_email%'";
+
+  $result = $conn->query($query);
+    if (!$result) die ("Database access failed: " . $conn->error);
+
+  $rows = $result->num_rows;
+
+  for ($j = 0 ; $j < $rows ; ++$j)
+  {
+    $result->data_seek($j);
+    $row = $result->fetch_array(MYSQLI_NUM);
+    if ($booking == $row[1])
+    echo "month_booked";  
+  }
+  $result->close();
+  $conn->close();
+}
+
 
 //Sanitize and fill categories values from post 
 function getPostCategories() {
