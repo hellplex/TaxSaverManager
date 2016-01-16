@@ -1,6 +1,20 @@
 <?php
 
-/*  Display a select of ticket categories  */
+/*  
+
+  INDEX OF FUNCTIONS IN THIS FILE
+
+  - function displaySelectCat()
+  - function displaySelectTicket() 
+  - function displayTicketTypes()
+
+  - function getPostCategories()
+
+  - function clean($str, $connection) 
+*/
+
+
+/*  Display a <Select> of ticket categories  */
 function displaySelectCat() {
   //Array to store validation errors
   $errmsg_arr = array();
@@ -35,6 +49,8 @@ _END;
   $conn->close();
 }
 
+
+
 /*  Display a select of tickets to pick  */
 function displaySelectTicket() {
   //Array to store validation errors
@@ -55,7 +71,7 @@ function displaySelectTicket() {
 
   $rows = $result->num_rows;
   
-  echo "<select name=\"ticket_types\">";
+  echo "<select name=\"ticket_typeId\">";
   for ($j = 0 ; $j < $rows ; ++$j)
   {
     $result->data_seek($j);
@@ -71,7 +87,7 @@ _END;
 }
 
 
-/*  Display a select of ticket categories  */
+/*  Display ticket categories  */
 function displayTicketTypes() {
   //Array to store validation errors
   $errmsg_arr = array();
@@ -87,8 +103,6 @@ function displayTicketTypes() {
   $query = "SELECT * FROM txs_ticket_type";  
   $result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
-
-
   $rows = $result->num_rows;
   
   for ($j = 0 ; $j < $rows ; ++$j)
@@ -114,14 +128,6 @@ _END;
   $conn->close();
 }
 
-
-/* function to escape db values for security */
-function clean($str, $connection) {
-	return $connection->real_escape_string($str);
-}
-
-
-
 //Sanitize and fill categories values from post 
 function getPostCategories() {
 	if(isset($_POST['tcktcat_id']) && isset($_POST['tcktcat_url']) && isset($_POST['tcktcat_url'])){
@@ -130,5 +136,13 @@ function getPostCategories() {
 		$tcktcat_url = clean($_POST['tcktcat_url'],$conn); 
 	}
 }
+
+
+/* function to escape db values for security */
+function clean($str, $connection) {
+  return $connection->real_escape_string($str);
+}
+
+
 
 ?>

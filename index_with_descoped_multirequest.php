@@ -7,6 +7,7 @@
   require_once './include/config.php';
   include './include/functions.php';
 
+
   $booked = false;
 
 if (isset($_POST['request_date_mmyy']) && isset($_POST['usr_email']) && isset($_POST['ticket_typeId'])){
@@ -38,6 +39,7 @@ for ($i = 12; $i >0 ; $i--) {
 }
 ?>
 
+
 <p>
   Hello! you are logged  as 
   <strong style="color:purple; text-transform:capitalize;"><?php echo $_SESSION['SESS_FIRST_NAME'];?></strong>
@@ -45,8 +47,29 @@ for ($i = 12; $i >0 ; $i--) {
   <a href="form_update_ticket_type.php">Update Tax Saver Types</a> | <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
 </p>
 
-
 <H2>Book monthly Tax Saver for year <?php echo "20".$curr_year ?></H2> 
+
+<!--
+
+IDEA OF AJAX FUNCTION TO BOOK WITHOUT REFRESH 
+
+<script type="text/javascript">
+  function addMonth(month){
+    console.log(month);
+  }
+</script>
+
+<H2>Book monthly Tax Saver for the full year <?php echo "20".$curr_year." from month: ".$curr_month;?></H2> 
+<p>
+  Type: 
+  <?php
+    displaySelectTicket() 
+  ?>
+    <input type="submit" value="Book the rest of the year">
+</p>
+<h3>Or book by the month</h3> 
+-->
+
 <div class="months_container">
 <?php
     foreach ($months as $num => $name) {
