@@ -80,8 +80,10 @@ for ($i = 12; $i >0 ; $i--) {
 </script>
 
 <p>
-  Hello! you are logged  as <strong style="color:purple"><?php echo $_SESSION['SESS_FIRST_NAME'];?></strong>
-  <a href="form_update_info.php">Update Tax Saver Types</a> | <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
+  Hello! you are logged  as 
+  <strong style="color:purple; text-transform:capitalize;"><?php echo $_SESSION['SESS_FIRST_NAME'];?></strong>
+  <br /><br />
+  <a href="ticket_types.php">See Ticket Types</a> | <a href="form_update_ticket_type.php">Update Tax Saver Types</a> | <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
 </p>
 <H2>Book monthly Tax Saver for <?php echo "20".$curr_year;?></H2> 
 
