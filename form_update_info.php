@@ -26,43 +26,47 @@ else {
 <form id="updateTaxSaverType" name="updateTaxSaverType" method="post" action="register_exec.php">
   <table width="500" border="0" align="center" cellpadding="2" cellspacing="0">
     <tr>
-      <th align="right">usr_email </th>
-      <td><input name="usr_email" type="text" class="textfield" id="usr_email" /></td>
+      <th align="right">Ticket name </th>
+      <td><input name="ticket_name" type="text" class="textfield" id="usr_email" /></td>
     </tr>
     <tr>
-      <th align="right">usr_password</th>
-      <td><input name="usr_password" type="password" class="textfield" id="usr_password" /></td>
+      <th align="right">Monthly price (gross)</th>
+      <td><input name="ticket_price1" type="password" class="textfield" id="usr_password" /></td>
     </tr>
     <tr>
-      <th align="right">Confirm usr_password </th>
-      <td><input name="cpassword" type="password" class="textfield" id="cpassword" /></td>
+      <th align="right">Net price (20%)</th>
+      <td><input name="ticket_price2" type="password" class="textfield" id="cpassword" /></td>
     </tr>
+    <tr>
+      <th align="right">Net price (40%)</th>
+      <td><input name="ticket_price3" type="text" class="textfield" id="usr_firstName" /></td>
+    </tr>
+    <tr>
+      <th align="right">Short Description</th>
+      <td><input name="ticket_shortd" type="text" class="textfield" id="usr_lastName" /></td>
+    </tr>
+
+    <tr>
+      <th align="right">Long Description</th>
+      <td><input name="ticket_longd" type="text" class="textfield" id="usr_departmentId" /></td>
+    </tr>
+    <tr>
+      <th align="right">Ticket category</th>
+      <td>
+        <select name="ticket_cat">
+          <option value="cat1">LUAS</option>
+          <option value="cat2">Train+Bus</option>
+          <option value="cat3">Sword Express</option>
+        </select>
+      </td>
+    </tr>
+
 
     <tr>
       <th align="right">   </th>
       <td>  <br/><br/> </td>
     </tr>
 
-    <tr>
-      <th align="right">usr_firstName</th>
-      <td><input name="usr_firstName" type="text" class="textfield" id="usr_firstName" /></td>
-    </tr>
-    <tr>
-      <th align="right">usr_lastName</th>
-      <td><input name="usr_lastName" type="text" class="textfield" id="usr_lastName" /></td>
-    </tr>
-    <tr>
-      <th align="right">usr_travelCardId</th>
-      <td><input name="usr_travelCardId" type="text" class="textfield" id="usr_travelCardId" /></td>
-    </tr>
-    <tr>
-      <th align="right">usr_departmentId</th>
-      <td><input name="usr_departmentId" type="text" class="textfield" id="usr_departmentId" /></td>
-    </tr>
-    <tr>
-      <th align="right">usr_isAdmin</th>
-      <td><input name="usr_isAdmin" type="text" class="textfield" id="usr_isAdmin" /></td>
-    </tr>
 
     <tr>
       <td>&nbsp;</td>
