@@ -2,8 +2,13 @@
   $pageName = "Home"; 
   include './include/header.php';
   include './include/session_control.php';
+
+  //Include database connection details
+  require_once('./include/config.php');
+  include('./include/functions.php');
 ?>
 
+<a href="ticket_types.php">See Ticket Types</a>
 
 <?php if (!$logged){ ?>
 
@@ -34,12 +39,8 @@
 
 <!-- ///// NOT LOGGED CONTENT END ///// -->
 
+
 <?php } else {?>
-
-
-
-
-
 
 <!-- ///// LOGGED IN CONTENT START ///// -->
 
@@ -64,7 +65,7 @@ for ($i = 12; $i >0 ; $i--) {
     display: block;
     overflow: hidden;
   }
-  p.month_block {
+  .month_block {
     border: solid 1px;
     float: left;
     margin-right: 2%;
@@ -83,19 +84,30 @@ for ($i = 12; $i >0 ; $i--) {
   Hello! you are logged  as 
   <strong style="color:purple; text-transform:capitalize;"><?php echo $_SESSION['SESS_FIRST_NAME'];?></strong>
   <br /><br />
-  <a href="ticket_types.php">See Ticket Types</a> | <a href="form_update_ticket_type.php">Update Tax Saver Types</a> | <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
+  <a href="form_update_ticket_type.php">Update Tax Saver Types</a> | <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
 </p>
 <H2>Book monthly Tax Saver for <?php echo "20".$curr_year;?></H2> 
+
+<h3>Pick the type for all (or change it per month thanks to the magic of JavaScript)</h3>
+<p>
+  <?php
+    displaySelectTicket() 
+  ?>
+</p>
 
 <div class="months_container">
 <?php
     foreach ($months as $num => $name) {
+        echo "<div class=\"month_block\">";
         printf('
-          <p class="month_block month%u">
+          <p class="month%u">
             %s
             <br /><input type="button" value="Book" onclick="addMonth(%u)">
             <br /><span style="color: red">Booked</span>
           </p>', $num, $name, $num);
+        displaySelectTicket();
+        echo "</div>";
+
     }
 ?>
 </div>
