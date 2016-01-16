@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2016 at 09:28 PM
+-- Generation Time: Jan 16, 2016 at 02:56 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.5.28
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `txs_request` (
   `request_id` int(11) NOT NULL,
-  `request_date_mmaa` int(4) NOT NULL,
+  `request_date_mmyy` int(4) NOT NULL,
   `usr_email` varchar(60) NOT NULL,
   `ticket_typeId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -41,9 +41,18 @@ CREATE TABLE IF NOT EXISTS `txs_request` (
 
 CREATE TABLE IF NOT EXISTS `txs_ticket_category` (
   `tcktcat_id` int(11) NOT NULL,
-  `tcktcat_name` int(11) NOT NULL,
+  `tcktcat_name` varchar(20) NOT NULL,
   `tcktcat_url` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `txs_ticket_category`
+--
+
+INSERT INTO `txs_ticket_category` (`tcktcat_id`, `tcktcat_name`, `tcktcat_url`) VALUES
+(1, 'LUAS only', 'https://taxsavertickets.luas.ie/'),
+(2, 'BUS and Combinations', 'http://www.taxsaver.ie/Employers/'),
+(3, 'Sword Express', 'http://www.swordsexpress.com/Tickets-Fares/Taxsaver-Order-Form/');
 
 -- --------------------------------------------------------
 
@@ -85,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `txs_user` (
 INSERT INTO `txs_user` (`usr_email`, `usr_password`, `usr_firstName`, `usr_lastName`, `usr_travelCardId`, `usr_departmentId`, `usr_isAdmin`) VALUES
 ('csuarez10@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'bb8', 'the robot', 'ufgghjgjh', 0, 0),
 ('csuarez12@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'jghjhv', 'hgjhkg', 'hgkjg', 0, 1),
+('csuarez15@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Cristina', 'Suarez', 't58576', 3, 0),
 ('csuarez1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Cristina', 'Suarez Corzo', '343f', 3, 1),
 ('csuarez2@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Cristina', 'Suarez Corzo', '343f', 2, 0),
 ('csuarez3@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'ytuyt', 'uyt', 'yut', 0, 0),
@@ -142,7 +152,7 @@ ALTER TABLE `txs_request`
 -- AUTO_INCREMENT for table `txs_ticket_category`
 --
 ALTER TABLE `txs_ticket_category`
-  MODIFY `tcktcat_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tcktcat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `txs_ticket_type`
 --
