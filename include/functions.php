@@ -4,16 +4,15 @@
 
   INDEX OF FUNCTIONS IN THIS FILE
 
-  - displaySelectCat()
-  - displaySelectTicket() 
-  - displayTicketTypes()
-  
-  - displayUserResquests() 
-  - checkIfMonthBooked()
+  QUERIES
+  - displaySelectCat()            // To display a select of categories 
+  - displaySelectTicket()         // To display a select of types of ticket
+  - displayTicketTypes()          // To  list the types of ticket
+  - displayUserResquests()        // To list all the request from the logged user
+  - checkIfMonthBooked($booking)  // To check if a month passed as an argument is booked, if so returns string "month_booked" used as a css class name"        
 
-  - getPostCategories()
-
-  - function clean($str, $connection) 
+  UTILS
+  - function clean($str, $connection)  // To sanitize values received from the form. Prevents SQL injection
 */
 
 
@@ -53,7 +52,7 @@ function displaySelectTicket() {
   
   include './include/connect_db.php';
  
-  /* Query database for ticket categories */
+  /* Query database for ticket types */
   $query = "SELECT * FROM txs_ticket_type";  
   $result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
@@ -77,12 +76,12 @@ _END;
 }
 
 
-/*  Display ticket categories  */
+/*  Display ticket types  */
 function displayTicketTypes() {
   
   include './include/connect_db.php';
  
-  /* Query database for ticket categories */
+  /* Query database for ticket types */
   $query = "SELECT * FROM txs_ticket_type";  
   $result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
@@ -120,14 +119,13 @@ function displayUserResquests() {
   /* User email to compare with the row usr_email on the request */
   $curr_user_email = $_SESSION['SESS_MEMBER_ID'];
  
-  /* Query database for ticket categories */
-  $query = "SELECT * FROM txs_request  where usr_email like '%$curr_user_email%'";
+  /* Query database for ticket requests by the logged user */
+  $query = "SELECT * FROM txs_request  where usr_email like '%$curr_user_email%' ORDER BY request_date_mmyy";
 
   $result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
 
   $rows = $result->num_rows;
-
   for ($j = 0 ; $j < $rows ; ++$j)
   {
     $result->data_seek($j);
@@ -146,14 +144,13 @@ function checkIfMonthBooked($booking) {
   /* User email to compare with the row usr_email on the request */
   $curr_user_email = $_SESSION['SESS_MEMBER_ID'];
  
-  /* Query database for ticket categories */
+  /* Query database for ticket requests by the logged user */
   $query = "SELECT * FROM txs_request  where usr_email like '%$curr_user_email%'";
 
   $result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
 
   $rows = $result->num_rows;
-
   for ($j = 0 ; $j < $rows ; ++$j)
   {
     $result->data_seek($j);
@@ -165,22 +162,9 @@ function checkIfMonthBooked($booking) {
   $conn->close();
 }
 
-
-//Sanitize and fill categories values from post 
-function getPostCategories() {
-	if(isset($_POST['tcktcat_id']) && isset($_POST['tcktcat_url']) && isset($_POST['tcktcat_url'])){
-		$tcktcat_id = clean($_POST['tcktcat_id'],$conn);
-		$tcktcat_name = clean($_POST['tcktcat_name'],$conn);
-		$tcktcat_url = clean($_POST['tcktcat_url'],$conn); 
-	}
-}
-
-
-/* function to escape db values for security */
+/* Function to sanitize values received from the form. Prevents SQL injection */
 function clean($str, $connection) {
   return $connection->real_escape_string($str);
 }
-
-
 
 ?>

@@ -78,19 +78,16 @@
 
 	
 	//Check for duplicate email
-	if($login != '') {
-		$query = "SELECT * FROM txs_user WHERE usr_email='$usr_email'";
-		$result = $conn->query($query);
-        if (!$result) die ("Database access failed: " . $conn->error);
-		//$result = mysql_query($query);
-		
-		if($result->num_rows != 0) {
-			$errmsg_arr[] = 'Login ID already in use';
-			$errflag = true;
-		}
-		//$result->close();
-		
+	$query = "SELECT * FROM txs_user WHERE usr_email='$usr_email'";
+	$result = $conn->query($query);
+    if (!$result) die ("Database access failed: " . $conn->error);
+	
+	if($result->num_rows != 0) {
+		$errmsg_arr[] = 'Login ID already in use';
+		$errflag = true;
 	}
+
+
 	
 	//If there are input validations, redirect back to the registration form
 	if($errflag) {
