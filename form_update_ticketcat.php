@@ -4,7 +4,6 @@
   include './include/session_control.php';
 ?>
 
-
 <?php
 // Check that user is authenticated, if show message 
 if (!$logged) { 
@@ -23,7 +22,7 @@ else {
 <h3>Edit Ticket Categories</h3>
 
 
-<form id="updateTaxSaverCategory" name="updateTaxSaverCategory" method="post" action="category_exec.php">
+<form id="updateTaxSaverCategory" name="updateTaxSaverCategory" method="post" action="exec_category.php">
   <table width="500" border="0" align="center" cellpadding="2" cellspacing="0">
     <tr>
       <th align="right">Category name </th>
@@ -48,25 +47,5 @@ else {
 
 
 <?php } ?>
-
-
-
-<!--
-  <form id="loginForm" name="loginForm" method="post" action="register_exec.php">
-
-    Email <input type="text" /><br/>
-    Password <input type="text" /> <br/>
-
-    First name <input type="text" /><br/>
-    Last name <input type="text" /><br/>
-    Travel card ID <input type="text" /><br/>
-    Department <input type="text" /><br/><br/>
-    
-    Optionally, if you wish to sign up as admin, please provide password sent you you by IT<br/>
-
-    Admin password <input type="password" /> (optional)<br/>
-
-  </form>
--->
 
 <?php  include './include/footer.php' ?>

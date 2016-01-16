@@ -12,7 +12,7 @@ if (!$logged) {
 <h3>Sign up to book your commuter Tax Saver  </h3>
 
 
-<form id="loginForm" name="loginForm" method="post" action="register_exec.php">
+<form id="loginForm" name="loginForm" method="post" action="exec_signup.php">
   <table width="500" border="0" align="center" cellpadding="2" cellspacing="0">
     <tr>
       <th align="right">Email </th>

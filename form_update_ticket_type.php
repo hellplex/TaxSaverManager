@@ -26,7 +26,7 @@ else {
 
 <h3>Edit or add Commute types</h3>
 
-<form id="updateTicketType" name="updateTicketType" method="post" action="exec_addTicketType.php">
+<form id="updateTicketType" name="updateTicketType" method="post" action="exec_ticketType.php">
   <table width="500" border="0" align="center" cellpadding="2" cellspacing="0">
     <tr>
       <th align="right">Ticket name </th>

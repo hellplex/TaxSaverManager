@@ -105,7 +105,7 @@
 	$result = $conn->query($qry);
 	if (!$result) die ("Database access failed: " . $conn->error);
 	//Check whether the query was successful or not
-	header("location: register_success.php");
+	header("location: success_register.php");
 	
 ?>
 

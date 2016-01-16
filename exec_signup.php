@@ -79,7 +79,7 @@
 	
 	//Check for duplicate email
 	if($login != '') {
-		$qry = "SELECT * FROM txs_ticket_category WHERE usr_email='$usr_email'";
+		$qry = "SELECT * FROM txs_user WHERE usr_email='$usr_email'";
 		$result = $conn->query($qry);
         if (!$result) die ("Database access failed: " . $conn->error);
 		//$result = mysql_query($qry);
@@ -105,6 +105,21 @@
 	$result = $conn->query($qry);
 	if (!$result) die ("Database access failed: " . $conn->error);
 	//Check whether the query was successful or not
-	header("location: ./register_success.php");
+	header("location: ./success_register.php");
 	
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

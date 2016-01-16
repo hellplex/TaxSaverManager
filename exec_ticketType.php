@@ -78,18 +78,3 @@ Form updateTicketType
 	header("location: ./success_ticket.php");
 	
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
