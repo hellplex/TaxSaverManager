@@ -111,6 +111,35 @@ _END;
 }
 
 
+/*  Display requests this month sorted by category  */
+function displayThisMonthRequests($this_month_id) {
+  
+  include './include/connect_db.php';
+ 
+  /* Query database for ticket types */
+  $query = "SELECT * FROM txs_request r JOIN txs_ticket_type t JOIN txs_user u WHERE request_date_mmyy LIKE '%$this_month_id%' ORDER BY tcktcat_id";  
+  $result = $conn->query($query);
+    if (!$result) die ("Database access failed: " . $conn->error);
+  $rows = $result->num_rows;
+  
+  for ($j = 0 ; $j < $rows ; ++$j)
+  {
+    $result->data_seek($j);
+    $row = $result->fetch_array(MYSQLI_NUM);
+
+    echo <<<_END
+    <pre>
+        request ID: $row[0]                  date: $row[1]        user name: $row[14]       
+      user surname: $row[15]        ticket type: $row[3]       ticket type:$row[11]
+    </pre>
+_END;
+  }
+
+  $result->close();
+  $conn->close();
+}
+
+
 /*  Display all the request of an user  */
 function displayUserResquests() {
 
@@ -120,7 +149,7 @@ function displayUserResquests() {
   $curr_user_email = $_SESSION['SESS_MEMBER_ID'];
  
   /* Query database for ticket requests by the logged user */
-  $query = "SELECT * FROM txs_request  where usr_email like '%$curr_user_email%' ORDER BY request_date_mmyy";
+  $query = "SELECT * FROM txs_request  WHERE usr_email LIKE '%$curr_user_email%' ORDER BY request_date_mmyy";
 
   $result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
