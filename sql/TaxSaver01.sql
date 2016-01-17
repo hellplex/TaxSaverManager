@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 16, 2016 at 05:28 PM
+-- Generation Time: Jan 17, 2016 at 09:45 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.5.28
 
@@ -28,10 +28,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `txs_request` (
   `request_id` int(11) NOT NULL,
-  `request_date_mmyy` int(4) NOT NULL,
+  `request_date_mmyy` varchar(4) NOT NULL,
   `usr_email` varchar(60) NOT NULL,
   `ticket_typeId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `txs_request`
+--
+
+INSERT INTO `txs_request` (`request_id`, `request_date_mmyy`, `usr_email`, `ticket_typeId`) VALUES
+(4, '0316', 'csuarez9@gmail.com', 2),
+(8, '0416', 'csuarez9@gmail.com', 3),
+(9, '0916', 'csuarez9@gmail.com', 2),
+(11, '0616', 'csuarez9@gmail.com', 2),
+(17, '0816', 'csuarez8@gmail.com', 2),
+(19, '0516', 'csuarez8@gmail.com', 2),
+(23, '0116', 'csuarez8@gmail.com', 2),
+(25, '0216', 'csuarez8@gmail.com', 3),
+(26, '0216', 'csuarez9@gmail.com', 2);
 
 -- --------------------------------------------------------
 
@@ -157,7 +172,7 @@ ALTER TABLE `txs_user`
 -- AUTO_INCREMENT for table `txs_request`
 --
 ALTER TABLE `txs_request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `txs_ticket_category`
 --
