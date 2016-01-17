@@ -49,19 +49,6 @@ for ($i = 12; $i >0 ; $i--) {
   <a href="form_update_ticket_type.php">Update Tax Saver Types</a> | <a href="member_profile.php">My Profile</a> | <a href="logout.php">Logout</a>
 </p>
 
-<style>
-  .month_block {
-    height: 130px;
-  }
-
-
-  .booked_label, .month_booked .bookform {display: none;}
-  
-  .month_booked .booked_label {
-    display: block;
-  }
-</style>
-
 <H2>Book monthly Tax Saver for year <?php echo "20".$curr_year ?></H2> 
 <div class="months_container">
 <?php

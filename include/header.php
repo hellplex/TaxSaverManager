@@ -1,7 +1,7 @@
 <?php
   //Start session
   session_start();
-  /*$_SESSION['SESS_MEMBER_ID'] = "usuario loggeado";*/
+  /*$_SESSION['SESS_MEMBER_ID'] = "logged";*/
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +29,6 @@
   <body>
 <div class="container">
   <div class="jumbotron">
-    <a href="http://localhost/TaxSaverManager/">home</a>
+    <a href="/TaxSaverManager">home</a>
     <h1>TSM <?php echo $pageName ?></h1>
   </div>

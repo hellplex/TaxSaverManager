@@ -13,4 +13,16 @@
   margin-right: 2%;
   margin-bottom: 2%;
   width: 28%;
+  height: 130px;
+}
+
+/*  Show and hide buttons depending on the status of every month, booked or not booked */
+/* line 21, ../sass/screen.scss */
+.booked_label, .month_booked .bookform {
+  display: none;
+}
+
+/* line 25, ../sass/screen.scss */
+.month_booked .booked_label {
+  display: block;
 }
