@@ -1,5 +1,5 @@
 <?php
-  $pageName = "Ticket Categories"; 
+  $pageName = "Update Ticket Categories"; 
   include './include/header.php';
   include './include/session_control.php';
 ?>
@@ -16,6 +16,8 @@ if (!$logged) {
 <?php }
 else {
   // Content authenticated 
+
+  include('./include/subheader_admin.php');
 ?>
 
 

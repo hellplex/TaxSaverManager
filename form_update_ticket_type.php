@@ -1,5 +1,5 @@
 <?php
-  $pageName = "Update Info"; 
+  $pageName = "Update Ticket Types"; 
   include './include/header.php';
   include './include/session_control.php';
   include('./include/functions.php');
@@ -22,6 +22,8 @@ if (!$logged) {
 <?php }
 else {
   // Content authenticated 
+
+  include('./include/subheader_admin.php');
 ?>
 
 <h3>Edit or add Commute types</h3>
