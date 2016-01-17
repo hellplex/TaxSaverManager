@@ -13,14 +13,12 @@
     </a></div>
   </div>
 
-
   <div class="nav_container">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#">Login as Commuter</a></li>
-      <li><a href="#">Login as admin</a></li>
+    <ul class="test1 nav nav-tabs">
+      <li class="active"><a href="#" data-toggle="tab" aria-expanded="false">Login as Commuter</a></li>
+      <li class=""><a href="#" data-toggle="tab" aria-expanded="true">Login as admin</a></li>
     </ul>
   </div>
-
   <div class="form_container">
     <form id="loginForm" name="loginForm" method="post" action="exec_login.php" class="form-horizontal">
       <div class="form-group">

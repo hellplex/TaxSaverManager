@@ -1,5 +1,5 @@
 <?php 
-  $pageName = "Home"; 
+  $pageName = "Admin user"; 
   /* Generic Header */
   include './include/header.php';
 
@@ -32,8 +32,8 @@ if (!$logged){
 else {
 
 /*  Else if LOGEGED display the sub-header and months pool */
-  include('./include/subheader_logged.php');
-  include('./include/block_months_pool.php');
+  include('./include/subheader_admin.php');
+  include('./include/block_requests_this_month.php');
 }
 
 /* Generic Footer */

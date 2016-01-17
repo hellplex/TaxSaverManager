@@ -22,6 +22,11 @@ $color_white:               #FFFFFF;
         margin: 0px;
     }
 }
+/* Subheaders */
+.highlighted {
+    color:green; 
+    text-transform:capitalize;
+}
 
 /* FOOTER */
 .footer {
@@ -37,11 +42,17 @@ $color_white:               #FFFFFF;
 .form_container {
     background-color: $color_white;
     border: solid 1px;
-    
     border-radius: 0px 4px 4px 4px;
     margin: 20px auto;
     padding: 30px;
     width: 40%;
+
+    /* Tablet below */
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+
 }
 
 .nav_container {
@@ -52,6 +63,11 @@ $color_white:               #FFFFFF;
         border: solid 1px;
         border-bottom: solid 0px;
         border-radius: 4px 4px 0px 0px;
+    }
+
+    /* Tablet below */
+    @media (max-width: 768px) {
+        width: 100%;
     }
 }
 
