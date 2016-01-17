@@ -36,12 +36,12 @@ Las step from the php configuration file holding the details of the Host, User a
 
 - 3. Set up your Host, User name and password. By default set to root with no password since this is an exercise, of course is highly recommended have a user and password for this enabled in the Database:
 
-<?php
+```<?php
 	define('DB_HOST', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PASSWORD', '');
 	define('DB_DATABASE', 'TaxSaver01');
-?>
+?>```
 
 
 ## Update SASS 
