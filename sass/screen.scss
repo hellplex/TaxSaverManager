@@ -81,6 +81,7 @@ $color_white:               #FFFFFF;
 .months_container {
     display: block;
     overflow: hidden;
+    h4 { margin: 0px; }
     .month_block {
         background-color: $color_white;
         border: solid 1px;
@@ -93,6 +94,14 @@ $color_white:               #FFFFFF;
         height: 130px;
 
     }
+
+}
+
+/*  Show and hide buttons depending on the status of every month, booked or not booked */
+.cancelform, .booked_label, .month_booked .bookform { display: none;}
+.month_booked {
+    .booked_label { display: block; }
+    .cancelform { display: block; }
 }
 
 .infolink {
@@ -100,11 +109,7 @@ $color_white:               #FFFFFF;
     font-size: 20px;
     margin-top: 30px !important;
 }
-/*  Show and hide buttons depending on the status of every month, booked or not booked */
-.booked_label, .month_booked .bookform {
-    display: none;
-}
+
+
   
-.month_booked .booked_label {
-  display: block;
-}
+

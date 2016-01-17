@@ -18,7 +18,7 @@
   margin: 0px;
 }
 
-/* Subheader */
+/* Subheaders */
 /* line 26, ../sass/screen.scss */
 .highlighted {
   color: green;
@@ -83,6 +83,10 @@
   overflow: hidden;
 }
 /* line 84, ../sass/screen.scss */
+.months_container h4 {
+  margin: 0px;
+}
+/* line 85, ../sass/screen.scss */
 .months_container .month_block {
   background-color: #FFFFFF;
   border: solid 1px;
@@ -95,20 +99,24 @@
   height: 130px;
 }
 
-/* line 98, ../sass/screen.scss */
+/*  Show and hide buttons depending on the status of every month, booked or not booked */
+/* line 101, ../sass/screen.scss */
+.cancelform, .booked_label, .month_booked .bookform {
+  display: none;
+}
+
+/* line 103, ../sass/screen.scss */
+.month_booked .booked_label {
+  display: block;
+}
+/* line 104, ../sass/screen.scss */
+.month_booked .cancelform {
+  display: block;
+}
+
+/* line 107, ../sass/screen.scss */
 .infolink {
   display: block;
   font-size: 20px;
   margin-top: 30px !important;
-}
-
-/*  Show and hide buttons depending on the status of every month, booked or not booked */
-/* line 104, ../sass/screen.scss */
-.booked_label, .month_booked .bookform {
-  display: none;
-}
-
-/* line 108, ../sass/screen.scss */
-.month_booked .booked_label {
-  display: block;
 }

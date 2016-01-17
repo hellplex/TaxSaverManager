@@ -19,13 +19,13 @@
       $request_id = sprintf("%02d", $num).$curr_year;
 
       /* Wrapped div include a class "month_booked" if this month is booked */
-      echo "<div class=\"month_block ";checkIfMonthBooked($request_id);echo "\">";
+      echo "<div class=\"month_block ";checkIfMonthBooked($request_id);echo "\"><h4>".$name."</h4>";
 
       /* build the date for the request in the format mmyy */
       echo "
     <form class=\"bookform\" id=\"request_".$request_id."\" name=\"request_".$request_id."\" method=\"post\" action=\"index.php\">
       <input name=\"request_date_mmyy\" type=\"hidden\" value=\"".$request_id."\"/>
-      <input name=\"usr_email\" type=\"hidden\" value=\"".$_SESSION['SESS_MEMBER_ID']."\"/>".$name."<br/>
+      <input name=\"usr_email\" type=\"hidden\" value=\"".$_SESSION['SESS_MEMBER_ID']."\"/><br/>
       ";
 
       /* select with all the ticket types */
@@ -35,7 +35,7 @@
       echo "
     </form>";
       echo "<br /><span class=\"booked_label\" style=\"color: red\">Booked: </span>
-    <form id=\"cancel_".$request_id."\" name=\"cancel_".$request_id."\" method=\"post\" action=\"index.php\">
+    <form class=\"cancelform\" id=\"cancel_".$request_id."\" name=\"cancel_".$request_id."\" method=\"post\" action=\"index.php\">
       <input type=\"hidden\" name=\"delete_request\" value=\"yes\">
       <input type=\"hidden\" name=\"request_date_mmyy\" value=\"".$request_id."\">
       <input type=\"submit\" value=\"Cancel\">

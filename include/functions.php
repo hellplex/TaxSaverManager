@@ -117,7 +117,11 @@ function displayThisMonthRequests($this_month_id) {
   include './include/connect_db.php';
  
   /* Query database for ticket types */
-  $query = "SELECT * FROM txs_request r JOIN txs_ticket_type t JOIN txs_user u WHERE request_date_mmyy LIKE '%$this_month_id%' ORDER BY tcktcat_id";  
+  $query = "SELECT * FROM txs_user u JOIN txs_request r JOIN txs_ticket_type t JOIN txs_ticket_category c
+  WHERE u.usr_email = r.usr_email 
+  AND r.ticket_typeId = t.ticket_typeId
+  AND t.tcktcat_id = c.tcktcat_id
+  ORDER BY c.tcktcat_id";  
   $result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
   $rows = $result->num_rows;
@@ -127,12 +131,22 @@ function displayThisMonthRequests($this_month_id) {
     $result->data_seek($j);
     $row = $result->fetch_array(MYSQLI_NUM);
 
+    if ($this_month_id==$row[8]) {
     echo <<<_END
     <pre>
-        request ID: $row[0]                  date: $row[1]        user name: $row[14]       
-      user surname: $row[15]        ticket type: $row[3]       ticket type:$row[11]
+
+      ticket category      $row[12]
+      
+      request date !!      $row[8]
+      Name                 $row[2]
+      Surname              $row[3]
+      request user email   $row[9]
+      travel card          $row[4]
+      url                  $row[21]
+  
     </pre>
 _END;
+    }
   }
 
   $result->close();
