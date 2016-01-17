@@ -1,6 +1,6 @@
-    <div style="background-color:#E8E8E8;">
-	    <footer style="padding-top:50px;margin-top:50px;">
-	      copyleft Crisitina Suarez
+    <div class="footer">
+	    <footer style="padding:30px;margin-top:50px;">
+	      Application by Crisitina Suarez
 	    </footer>
 	</div>
 

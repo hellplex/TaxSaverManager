@@ -1,13 +1,71 @@
-/*  INDEX --  Month boxes for book monthly tictets  */
-/* line 3, ../sass/screen.scss */
+/*colors*/
+/* HEADER */
+/* line 10, ../sass/screen.scss */
+.container .jumbotron, .container-fluid .jumbotron {
+  background: url(../img/bg.png) repeat #ABC147;
+}
+
+/* line 14, ../sass/screen.scss */
+.homelink {
+  display: block;
+  font-size: 40px;
+  margin-top: 10px !important;
+}
+
+/* line 20, ../sass/screen.scss */
+.jumbotron h1 {
+  color: #3C5B45;
+  margin: 0px;
+}
+
+/* FOOTER */
+/* line 27, ../sass/screen.scss */
+.footer {
+  background: url(../img/bg.png) repeat #ABC147;
+  color: #3C5B45;
+  text-align: right;
+}
+
+/* GENERAL LAYOUT RE-USE */
+/* line 37, ../sass/screen.scss */
+.form_container {
+  background-color: #FFFFFF;
+  border: solid 1px;
+  border-radius: 0px 4px 4px 4px;
+  margin: 20px auto;
+  padding: 30px;
+  width: 40%;
+}
+
+/* line 47, ../sass/screen.scss */
+.nav_container {
+  margin: 0 auto -2px auto;
+  width: 40%;
+}
+/* line 50, ../sass/screen.scss */
+.nav_container li.active a {
+  background-color: #FFFFFF !important;
+  border: solid 1px;
+  border-bottom: solid 0px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+/*   ///////////////  INDEX  ///////////////  */
+/* line 60, ../sass/screen.scss */
+.form_container {
+  margin-top: 0px;
+}
+
+/* line 65, ../sass/screen.scss */
 .months_container {
   display: block;
   overflow: hidden;
 }
-
-/* line 7, ../sass/screen.scss */
-.month_block {
+/* line 68, ../sass/screen.scss */
+.months_container .month_block {
+  background-color: #FFFFFF;
   border: solid 1px;
+  border-radius: 3px;
   float: left;
   padding: 1%;
   margin-right: 2%;
@@ -16,13 +74,20 @@
   height: 130px;
 }
 
+/* line 82, ../sass/screen.scss */
+.infolink {
+  display: block;
+  font-size: 20px;
+  margin-top: 30px !important;
+}
+
 /*  Show and hide buttons depending on the status of every month, booked or not booked */
-/* line 21, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 .booked_label, .month_booked .bookform {
   display: none;
 }
 
-/* line 25, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 .month_booked .booked_label {
   display: block;
 }

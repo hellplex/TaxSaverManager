@@ -2,22 +2,22 @@
   $pageName = "Home"; 
   include './include/header.php';
   include './include/session_control.php';
-
   //Include database connection details
   require_once './include/config.php';
   include './include/functions.php';
 
+/* If we come from sending request: process request */
 if (isset($_POST['request_date_mmyy']) && isset($_POST['usr_email']) && isset($_POST['ticket_typeId'])){
   include('exec_request.php');
 }
 
+/* If we come from cancelling request: process cancel */
 if (isset($_POST['request_date_mmyy']) && isset($_POST['delete_request'])){
   include('exec_cancel_request.php');
 }
-
 ?>
 
-<a href="ticket_types.php">See Ticket Types</a>
+
 
 <?php 
   /*  If not logged load the Welcome block, else log the request pool of months  */

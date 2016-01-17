@@ -23,12 +23,19 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!--  Theme from http://www.lavishbootstrap.com/ -->
+    <link href="css/lavish-bootstrap.css" rel="stylesheet"> 
+
     <!-- Custom CSS compiled from sass -->
     <link href="css/screen.css" rel="stylesheet">
+
+    
   </head>
   <body>
 <div class="container">
   <div class="jumbotron">
-    <a href="/TaxSaverManager">home</a>
-    <h1>TSM <?php echo $pageName ?></h1>
+    <div class="row">
+      <div class="col-md-1"><a class="homelink" href="/TaxSaverManager" title="Go home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></div>
+      <div class="col-md-11"><h1>TSM <?php echo $pageName ?></h1></div>
+    </div>
   </div>

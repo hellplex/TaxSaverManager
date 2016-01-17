@@ -1,25 +1,92 @@
-/*  INDEX --  Month boxes for book monthly tictets  */
+@charset "UTF-8";
+
+/*colors*/
+$color_primary_green:       #ABC147;
+$color_secondary_green:     #3C5B45;
+$color_white:               #FFFFFF;
+
+
+/* HEADER */
+.container .jumbotron, .container-fluid .jumbotron {
+    background: url(../img/bg.png) repeat $color_primary_green;
+}
+
+.homelink {    
+    display: block;
+    font-size: 40px;
+    margin-top: 10px !important;  
+}
+.jumbotron {
+    h1{
+        color: $color_secondary_green;
+        margin: 0px;
+    }
+}
+
+/* FOOTER */
+.footer {
+    background: url(../img/bg.png) repeat $color_primary_green;
+    color: $color_secondary_green;
+    text-align: right;
+}
+
+
+
+/* GENERAL LAYOUT RE-USE */
+
+.form_container {
+    background-color: $color_white;
+    border: solid 1px;
+    
+    border-radius: 0px 4px 4px 4px;
+    margin: 20px auto;
+    padding: 30px;
+    width: 40%;
+}
+
+.nav_container {
+    margin: 0 auto -2px auto;
+    width: 40%;
+    li.active a {
+        background-color: $color_white !important;
+        border: solid 1px;
+        border-bottom: solid 0px;
+        border-radius: 4px 4px 0px 0px;
+    }
+}
+
+/*   ///////////////  INDEX  ///////////////  */
+
+.form_container {
+    margin-top: 0px;
+}
+
 
 .months_container {
     display: block;
     overflow: hidden;
-  }
-.month_block {
-    border: solid 1px;
-    float: left;
-    padding: 1%;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    width: 28%;
+    .month_block {
+        background-color: $color_white;
+        border: solid 1px;
+        border-radius: 3px;
+        float: left;
+        padding: 1%;
+        margin-right: 2%;
+        margin-bottom: 2%;
+        width: 28%;
+        height: 130px;
 
-    height: 130px;
-
+    }
 }
 
+.infolink {
+    display: block;
+    font-size: 20px;
+    margin-top: 30px !important;
+}
 /*  Show and hide buttons depending on the status of every month, booked or not booked */
-
 .booked_label, .month_booked .bookform {
-	display: none;
+    display: none;
 }
   
 .month_booked .booked_label {
