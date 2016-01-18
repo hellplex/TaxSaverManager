@@ -55,7 +55,7 @@ if (!$logged) {
           <select name="usr_departmentId" class="form-control" id="usr_departmentId">
             <option value="1">Finance</option>
             <option value="2">R&D</option>
-            <option value="3">Human Resrouces</option>
+            <option value="3">Human Resources</option>
             <option value="4">Marketing</option>
             <option value="5">Legal</option>
             <option value="6">Account Management</option>
