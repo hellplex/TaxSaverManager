@@ -1,6 +1,6 @@
     <div class="footer">
 	    <footer style="padding:30px;margin-top:50px;">
-	      Application by Crisitina Suarez
+	      Application by Cristina Suarez
 	    </footer>
 	</div>
 

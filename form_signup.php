@@ -73,7 +73,7 @@ if (!$logged) {
       </div>
       <div class="form-group">
         <div class="col-sm-offset-4 col-sm-8">
-          <input type="submit" name="Submit" value="Register" />
+          <input type="submit" name="Submit" value="Register" class="btn btn-primary" />
         </div>
       </div>
   </form>
