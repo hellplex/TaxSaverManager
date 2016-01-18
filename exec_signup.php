@@ -1,22 +1,9 @@
 <?php
 	//Start session
 	session_start();
-	
-	//Include database connection details
-	require_once('./include/config.php');
-	
-	//Array to store validation errors
-	$errmsg_arr = array();
-	
-	//Validation error flag
-	$errflag = false;
-	
-	//Connect to mysql server
-	
-	$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
-    if ($conn->connect_error) die($conn->connect_error);
-	
-	
+	//Include database connection details and conntect to Database
+	require_once('include/config.php');
+	include './include/connect_db.php';
 	
 	function clean($str, $connection) {
 		return $connection->real_escape_string($str);

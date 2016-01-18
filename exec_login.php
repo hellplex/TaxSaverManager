@@ -1,27 +1,10 @@
 <?php
 	//Start session
 	session_start();
-	
-	//Include database connection details
+	//Include database connection details and conntect to Database
 	require_once('include/config.php');
-	
-	//Array to store validation errors
-	$errmsg_arr = array();
-	
-	//Validation error flag
-	$errflag = false;
-	
-	//Connect to mysql server
-	$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
-    if ($conn->connect_error) die($conn->connect_error);
-	
-	//Select database
-	
-	
-	//Function to sanitize values received from the form. Prevents SQL injection
-	function clean($str, $connection) {
-		return $connection->real_escape_string($str);
-	}
+	include './include/connect_db.php';
+	include './include/functions.php';
 	
 	//Sanitize the POST values
 	$usr_email = clean($_POST['usr_email'],$conn);
@@ -51,9 +34,8 @@
     if (!$result) die ("Database access failed: " . $conn->error);
 	
 	//Check whether the query was successful or not
-	
 	if($result->num_rows == 1) {
-			//Login Successful
+		//Login Successful
 		session_regenerate_id();
 		$appuser = $result->fetch_array(MYSQLI_ASSOC);
 		$_SESSION['SESS_MEMBER_ID'] = $appuser['usr_email'];
@@ -61,7 +43,7 @@
 		$_SESSION['SESS_LAST_NAME'] = $appuser['usr_lastName'];
 		session_write_close();
 			
-			//echo $user['member_id'];
+		//echo $user['member_id'];
 		header("location: index.php");
 		exit();
 	}else {

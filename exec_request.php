@@ -1,13 +1,5 @@
 <?php	
-	//Array to store validation errors
-	$errmsg_arr = array();
-	
-	//Validation error flag
-	$errflag = false;
-	
-	//Connect to mysql server
-	$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
-    if ($conn->connect_error) die($conn->connect_error);
+	include './include/connect_db.php';
 	
 	//Sanitize the POST values
 	$request_date_mmyy = clean($_POST['request_date_mmyy'],$conn);
@@ -27,7 +19,6 @@
 		$errmsg_arr[] = 'Type of ticket missing';
 		$errflag = true;
 	}
-
 	
 	//If there are input validations, redirect back to the registration form
 	if($errflag) {
