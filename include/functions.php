@@ -33,7 +33,7 @@ function displaySelectCat() {
 
   $rows = $result->num_rows;
   
-  echo "<select name=\"ticket_categories\">";
+  echo "<select name=\"ticket_categories\" class=\"form-control\">";
   for ($j = 0 ; $j < $rows ; ++$j)
   {
     $result->data_seek($j);
@@ -63,7 +63,7 @@ function displaySelectTicket() {
 
   $rows = $result->num_rows;
   
-  echo "<select name=\"ticket_typeId\">";
+  echo "<select name=\"ticket_typeId\" class=\"form-control\">";
   for ($j = 0 ; $j < $rows ; ++$j)
   {
     $result->data_seek($j);

@@ -25,7 +25,7 @@ if (isset($_POST['request_date_mmyy'])
 }
 
 
-/*  If NOT LOGGED load the Welcome block  */
+/*  If NOT LOGGED load the Welcome block with the login block  */
 if (!$logged){ 
   include('./include/block_welcome.php');
 } 

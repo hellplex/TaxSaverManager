@@ -7,31 +7,13 @@
   require_once './include/config.php';
   include './include/functions.php';
 
-/* If we requested BOOK MONTH: process request */
-if (
-  isset($_POST['request_date_mmyy']) 
-  && isset($_POST['usr_email']) 
-  && isset($_POST['ticket_typeId'])) {
-
-  include('exec_request.php');
-}
-
-
-/* If we requested CANCELMONTH: process cancel */
-if (isset($_POST['request_date_mmyy'])
-  && isset($_POST['delete_request'])) {
-  
-  include('exec_cancel_request.php');
-}
-
-
 /*  If NOT LOGGED load the Welcome block  */
 if (!$logged){ 
   include('./include/block_welcome.php');
 } 
 else {
 
-/*  Else if LOGEGED display the sub-header and months pool */
+/*  Else if LOGEGED display the Admin sub-header and Request by Category tables pool */
   include('./include/subheader_admin.php');
   include('./include/block_requests_this_month.php');
 }

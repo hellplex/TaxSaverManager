@@ -1,8 +1,4 @@
 <?php	
-	echo "<h2 style=\"color:red;\">deleted</h2>";
-?>
-
-<?php	
 	//Array to store validation errors
 	$errmsg_arr = array();
 	
@@ -36,7 +32,7 @@
   	if (!$result) echo "DELETE failed: $query<br>" .
       $conn->error . "<br><br>";
 
-	echo "<h1>Deleted successful</h1>";
+	echo "<h1>Cancelled successful</h1>";
 
 	$result = $conn->query($query);
 	if (!$result) die ("Database access failed: " . $conn->error);

@@ -1,8 +1,4 @@
 <?php	
-	echo "<h2 style=\"color:red;\">sent</h2>";
-?>
-
-<?php	
 	//Array to store validation errors
 	$errmsg_arr = array();
 	

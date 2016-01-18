@@ -25,20 +25,20 @@
       echo "
     <form class=\"bookform\" id=\"request_".$request_id."\" name=\"request_".$request_id."\" method=\"post\" action=\"index.php\">
       <input name=\"request_date_mmyy\" type=\"hidden\" value=\"".$request_id."\"/>
-      <input name=\"usr_email\" type=\"hidden\" value=\"".$_SESSION['SESS_MEMBER_ID']."\"/><br/>
+      <input name=\"usr_email\" type=\"hidden\" value=\"".$_SESSION['SESS_MEMBER_ID']."\"/>
       ";
 
       /* select with all the ticket types */
       displaySelectTicket();
 
-      echo "<br /><input type=\"submit\" value=\"Book\">";
+      echo "<input type=\"submit\" value=\"Book\" class=\"btn btn-primary\">";
       echo "
     </form>";
-      echo "<br /><span class=\"booked_label\" style=\"color: red\">Booked: </span>
+      echo "<p class=\"booked_label\">Already Booked</p>
     <form class=\"cancelform\" id=\"cancel_".$request_id."\" name=\"cancel_".$request_id."\" method=\"post\" action=\"index.php\">
       <input type=\"hidden\" name=\"delete_request\" value=\"yes\">
       <input type=\"hidden\" name=\"request_date_mmyy\" value=\"".$request_id."\">
-      <input type=\"submit\" value=\"Cancel\">
+      <input type=\"submit\" value=\"Cancel\" class=\"btn btn-warning\">
     </form>
 </div>
 ";

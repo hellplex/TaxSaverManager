@@ -52,6 +52,9 @@ $color_white:               #FFFFFF;
         width: 100%;
     }
 }
+.wideform {
+   width: 60%; 
+}
 
 .nav_container {
     margin: 0 auto -2px auto;
@@ -84,7 +87,7 @@ $color_white:               #FFFFFF;
 .months_container {
     display: block;
     overflow: hidden;
-    h4 { margin: 0px; }
+    h4, select { margin: 0 0 10px 0; }
     .month_block {
         background-color: $color_white;
         border: solid 1px;
@@ -95,7 +98,9 @@ $color_white:               #FFFFFF;
         margin-bottom: 2%;
         width: 28%;
         height: 130px;
-
+    }
+    .booked_label {
+        color: $color_primary_green;
     }
 
 }
