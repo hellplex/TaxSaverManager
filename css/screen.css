@@ -51,13 +51,13 @@
   }
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
 .nav_container {
   margin: 0 auto -2px auto;
   width: 40%;
   /* Tablet below */
 }
-/* line 61, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 .nav_container li.active a {
   background-color: #FFFFFF !important;
   border: solid 1px;
@@ -65,28 +65,37 @@
   border-radius: 4px 4px 0px 0px;
 }
 @media (max-width: 768px) {
-  /* line 58, ../sass/screen.scss */
+  /* line 56, ../sass/screen.scss */
   .nav_container {
     width: 100%;
   }
 }
 
+/* line 71, ../sass/screen.scss */
+.table {
+  background-color: #FFFFFF;
+}
+/* line 73, ../sass/screen.scss */
+.table th {
+  background-color: #EEEEEE;
+}
+
 /*   ///////////////  INDEX  ///////////////  */
-/* line 76, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
 .form_container {
   margin-top: 0px;
 }
 
-/* line 81, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 .months_container {
   display: block;
   overflow: hidden;
 }
-/* line 84, ../sass/screen.scss */
+/* line 87, ../sass/screen.scss */
 .months_container h4 {
   margin: 0px;
 }
-/* line 85, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 .months_container .month_block {
   background-color: #FFFFFF;
   border: solid 1px;
@@ -100,21 +109,21 @@
 }
 
 /*  Show and hide buttons depending on the status of every month, booked or not booked */
-/* line 101, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .cancelform, .booked_label, .month_booked .bookform {
   display: none;
 }
 
-/* line 103, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 .month_booked .booked_label {
   display: block;
 }
-/* line 104, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 .month_booked .cancelform {
   display: block;
 }
 
-/* line 107, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 .infolink {
   display: block;
   font-size: 20px;

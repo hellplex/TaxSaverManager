@@ -12,6 +12,9 @@
   - checkIfMonthBooked($booking)  // To check if a month passed as an argument is booked, if so returns string "month_booked" used as a css class name"        
 
   UTILS
+  - getCategoryName($this_category)    // Passing a category id, it returns the name
+  - getCategoryURL($this_category)     // Passing a category id, it returns the URL
+  - getCatNum()                        // It returns the amount of categories
   - function clean($str, $connection)  // To sanitize values received from the form. Prevents SQL injection
 */
 
@@ -112,7 +115,7 @@ _END;
 
 
 /*  Display requests this month sorted by category  */
-function displayThisMonthRequests($this_month_id) {
+function displayThisMonthRequests($this_month_id, $this_category) {
   
   include './include/connect_db.php';
  
@@ -125,29 +128,36 @@ function displayThisMonthRequests($this_month_id) {
   $result = $conn->query($query);
     if (!$result) die ("Database access failed: " . $conn->error);
   $rows = $result->num_rows;
-  
+
+echo <<<_END
+  <table class="table table-bordered" width="100%">
+    <tr>
+      <th clas="row_name"><strong>Name</strong></th>
+      <th clas="row_surname"><strong>Surname</strong></th>
+      <th clas="row_ticket"><strong>Ticket type</strong></th>
+      <th clas="row_email"><strong>Email</strong></th>
+      <th clas="row_travelcard"><strong>Travel card</strong></th>
+    </tr>
+_END;
   for ($j = 0 ; $j < $rows ; ++$j)
   {
     $result->data_seek($j);
     $row = $result->fetch_array(MYSQLI_NUM);
 
-    if ($this_month_id==$row[8]) {
-    echo <<<_END
-    <pre>
-
-      ticket category      $row[12]
-      
-      request date !!      $row[8]
-      Name                 $row[2]
-      Surname              $row[3]
-      request user email   $row[9]
-      travel card          $row[4]
-      url                  $row[21]
-  
-    </pre>
+    /*  list the month and category passed as arguments  */
+    if ($this_category == $row[19] && $this_month_id==$row[8]) {
+      echo <<<_END
+      <tr>
+        <td><!-- Name -->                 $row[2]</td>
+        <td><!-- Surname -->              $row[3]</td>
+        <td><!-- ticket name -->          $row[12]</td>
+        <td><!-- request user email -->   $row[9]</td>
+        <td><!-- travel card -->          $row[4]</td>
+      </tr>
 _END;
     }
   }
+  echo "</table>";
 
   $result->close();
   $conn->close();
@@ -179,6 +189,7 @@ function displayUserResquests() {
   $conn->close();
 }
 
+
 /*  Check if a specific month has been booked by the user  */
 function checkIfMonthBooked($booking) {
 
@@ -201,6 +212,55 @@ function checkIfMonthBooked($booking) {
     if ($booking == $row[1])
     echo "month_booked";  
   }
+  $result->close();
+  $conn->close();
+}
+
+
+/*  Get Name of Categories   */
+function getCategoryName($this_category) {
+  include './include/connect_db.php';
+  /* Query database for ticket categories */
+  $query = "SELECT * FROM txs_ticket_category";  
+  $result = $conn->query($query);
+    if (!$result) die ("Database access failed: " . $conn->error);
+  $rows = $result->num_rows;
+  $result->data_seek($this_category);
+  $row = $result->fetch_array(MYSQLI_NUM);
+  
+  return $row[1];
+  $result->close();
+  $conn->close();
+}
+
+/*  Get Name of Categories   */
+function getCategoryURL($this_category) {
+  include './include/connect_db.php';
+  /* Query database for ticket categories */
+  $query = "SELECT * FROM txs_ticket_category";  
+  $result = $conn->query($query);
+    if (!$result) die ("Database access failed: " . $conn->error);
+  $rows = $result->num_rows;
+  $result->data_seek($this_category);
+  $row = $result->fetch_array(MYSQLI_NUM);
+  
+  return $row[2];
+  $result->close();
+  $conn->close();
+}
+
+/*  Get the number of categories    */
+function getCatNum() {
+  $non_emty_categories = 0;
+  include './include/connect_db.php';
+  
+  /* Query database for ticket categories */
+  $query = "SELECT * FROM txs_ticket_category";  
+  $result = $conn->query($query);
+    if (!$result) die ("Database access failed: " . $conn->error);
+  $rows = $result->num_rows;
+
+  return $rows;
   $result->close();
   $conn->close();
 }
