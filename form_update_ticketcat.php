@@ -19,34 +19,28 @@ else {
 
   include('./include/subheader_admin.php');
 ?>
-
-
 <h3>Edit Ticket Categories</h3>
-
-
-<form id="updateTaxSaverCategory" name="updateTaxSaverCategory" method="post" action="exec_category.php">
-  <table width="500" border="0" align="center" cellpadding="2" cellspacing="0">
-    <tr>
-      <th align="right">Category name </th>
-      <td><input name="tcktcat_name" type="text" class="textfield" /></td>
-    </tr>
-    <tr>
-      <th align="right">   </th>
-      <td>  <br/> </td>
-    </tr>
-    <tr>
-      <th align="right" valign="top">Category link</th>
-      <td>
-        <textarea rows="4" cols="50" name="tcktcat_url"></textarea>
-      </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><input type="submit" name="Submit" value="Save Category" /></td>
-    </tr>
-  </table>
+<div class="form_container wideform">
+<form id="updateTaxSaverCategory" name="updateTaxSaverCategory" method="post" action="exec_category.php" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-4">Category name</label>
+    <div class="col-sm-8">
+      <input name="tcktcat_name" type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">Category link</label>
+    <div class="col-sm-8">
+      <textarea rows="4" cols="50" name="tcktcat_url"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-8">
+        <input type="submit" name="Submit" value="Save Category" class="btn btn-primary" />
+      </div>
+    </div>
 </form>
-
+</div>
 
 <?php } ?>
 

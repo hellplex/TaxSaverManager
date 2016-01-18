@@ -7,10 +7,6 @@
   //Include database connection details
   require_once('./include/config.php');
   
-?>
-
-
-<?php
 // Check that user is authenticated, if show message 
 if (!$logged) { 
 ?>
@@ -28,59 +24,60 @@ else {
 
 <h3>Edit or add Commute types</h3>
 
-<form id="updateTicketType" name="updateTicketType" method="post" action="exec_ticketType.php">
-  <table width="500" border="0" align="center" cellpadding="2" cellspacing="0">
-    <tr>
-      <th align="right">Ticket name </th>
-      <td><input name="ticket_name" type="text" class="textfield" /></td>
-    </tr>
-    <tr>
-      <th align="right">Monthly price (gross)</th>
-      <td><input name="ticket_gross" type="text" class="textfield" /></td>
-    </tr>
-    <tr>
-      <th align="right">Net price (20%)</th>
-      <td><input name="ticket_net1" type="text" class="textfield" /></td>
-    </tr>
-    <tr>
-      <th align="right">Net price (40%)</th>
-      <td><input name="ticket_net2" type="text" class="textfield" /></td>
-    </tr>
-    <tr>
-      <th align="right">Short Description</th>
-      <td><input name="ticket_shortDescript" type="text" class="textfield" /></td>
-    </tr>
-
-    <tr>
-      <th align="right">Long Description</th>
-      <td><input name="ticket_longDescript" type="text" class="textfield" /></td>
-    </tr>
-    <tr>
-      <th align="right">Ticket category</th>
-      <td>
-
+<div class="form_container wideform">
+<form id="updateTicketType" name="updateTicketType" method="post" action="exec_ticketType.php" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-4">Ticket name</label>
+    <div class="col-sm-8">
+      <input name="ticket_name" type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">Monthly price (gross)</label>
+    <div class="col-sm-8">
+      <input name="ticket_gross" type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">Net price (20%)</label>
+    <div class="col-sm-8">
+      <input name="ticket_net1" type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">Net price (40%)</label>
+    <div class="col-sm-8">
+      <input name="ticket_net2" type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">Short Description</label>
+    <div class="col-sm-8">
+      <input name="ticket_shortDescript" type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">Long Description</label>
+    <div class="col-sm-8">
+      <input name="ticket_longDescript" type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">Ticket category</label>
+    <div class="col-sm-8">
       <?php
         /* Generate the ticket categories select from the DB */
         displaySelectCat();
       ?>
-
-      </td>
-    </tr>
-
-
-    <tr>
-      <th align="right">   </th>
-      <td>  <br/><br/> </td>
-    </tr>
-
-
-    <tr>
-      <td>&nbsp;</td>
-      <td><input type="submit" name="Submit" value="Register" /></td>
-    </tr>
-  </table>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <input type="submit" name="Submit" value="Save" class="btn btn-primary" />
+    </div>
+  </div>
 </form>
-
+</div>
 
 <?php } ?>
 

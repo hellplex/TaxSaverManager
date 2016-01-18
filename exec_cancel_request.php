@@ -31,8 +31,11 @@
     $result = $conn->query($query);
   	if (!$result) echo "DELETE failed: $query<br>" .
       $conn->error . "<br><br>";
-
-	echo "<h1>Cancelled successful</h1>";
+  
+	echo "<div class=\"alert alert-success fade in\" style=\"margin-top:18px;\">
+	<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\" title=\"close\">×</a>
+    <strong>Success!</strong> The request was cancelled.
+	</div>";
 
 	$result = $conn->query($query);
 	if (!$result) die ("Database access failed: " . $conn->error);
