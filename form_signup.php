@@ -12,7 +12,7 @@ if (!$logged) {
 <h3>Sign up to book your commuter Tax Saver  </h3>
 
 <div class="form_container wideform">
-  <form id="loginForm" name="loginForm" method="post" action="exec_signup.php" class="form-horizontal">
+  <form id="loginForm" name="loginForm" method="post" action="exec_signup.php" class="form-horizontal" onsubmit="myValidate()">
       <div class="form-group">
         <label class="control-label col-sm-4">Email</label>
         <div class="col-sm-8">

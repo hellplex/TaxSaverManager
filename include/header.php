@@ -20,6 +20,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Validations -->
+    <script src="js/validations.js"></script>
+
     <!--  Theme from http://www.lavishbootstrap.com/ -->
     <link href="css/lavish-bootstrap.css" rel="stylesheet"> 
 
